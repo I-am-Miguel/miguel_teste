@@ -1,0 +1,1 @@
+web: gunicorn corridaCompartilhada.wsgi --log-file -

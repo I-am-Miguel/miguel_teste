@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+{%block container%}
+<div class="jumbotron">
+    <h3>Consulta de {{nomeUsuario}}:</h3>
+    {%if usuarios%}
+    <table class="table table-striped table-dark">
+
+        <thead>
+        <tr>
+            <th>Motorista</th>
+            <th>Passsageiro</th>
+            <th>Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for user in usuarios%}
+        <tr>
+            <th>{{user.motorista}}</th>
+            <th>{{user.passageiro}}</th>
+            <th>{{user.valor}}</th>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    {%else%}
+    <h2>Não há {{nomeUsuario}} cadastrad{{genero}}s</h2>
+    {%endif%}
+</div>
+{%endblock container%}

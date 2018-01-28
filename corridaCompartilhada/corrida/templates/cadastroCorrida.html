@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{%load static%}
+{%block container%}
+<div class="jumbotron">
+    <h3>Cadastro de Corridas:</h3>
+    <div class="container">
+        <form name="form-cadastro" action="" id="form-cadastro" role="form" method="POST">{% csrf_token %}
+            <div class="form-row">
+                <div class="mb-4">
+                    <label for="motorista">Motorista</label>
+                    <select class="form-control" id="motorista" name="motorista" required>
+
+                        {%for motorista in motoristas%}
+                        <option>{{motorista}}</option>
+                        {%endfor%}
+
+                    </select>
+                </div>
+                <div class="col-lf-4 mb-3">
+                    <label for="passageiro">Passageiro</label>
+                    <select class="form-control" id="passageiro" name="passageiro" required>
+                        {%for passageiro in passageiros%}
+                        <option>{{passageiro}}</option>
+
+                        {%endfor%}
+                    </select>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label for="preco">Preço</label>
+                    <div class="input-group">
+                        <input type="number" min="0" step="0.01" data-number-to-fixed="2"
+                               data-number-stepfactor="100" class="form-control currency" name="preco" id="preco" required/>
+                    </div>
+
+                </div>
+            </div>
+            <button class="btn btn-secundary" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+{%endblock%}
+<!--Js para validação de formularios-->
+<script src="{% static 'js/validateCadastro.js' %}"></script>

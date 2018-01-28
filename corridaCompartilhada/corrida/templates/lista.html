@@ -1,0 +1,46 @@
+{%extends "base.html"%}
+{%block container%}
+<div class="jumbotron">
+    <h3>Consulta de {{nomeUsuario}}:</h3>
+    {%if usuarios%}
+    <table class="table table-striped table-dark">
+
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data nascimento</th>
+            <th>CPF</th>
+            <th>Sexo</th>
+            {%if nomeUsuario == 'Motoristas'%}
+            <th>Ativo</th>
+            {%endif%}
+        </tr>
+        </thead>
+        <tbody>
+        {%for user in usuarios%}
+        <tr>
+            <th>{{user.nome}}</th>
+            <th>{{user.data_nascimento}}</th>
+            <th>{{user.cpf}}</th>
+            <th>{{user.sexo}}</th>
+            {%if nomeUsuario == 'Motoristas'%}
+
+            <th>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1"
+                           {%if user.ativo %} checked
+                           {%endif%} disabled>
+                    <label class="custom-control-label" for="customCheck1"></label>
+                </div>
+            </th>
+
+            {%endif%}
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    {%else%}
+    <h2>Não há {{nomeUsuario}} cadastrad{{genero}}s</h2>
+    {%endif%}
+</div>
+{%endblock container%}
