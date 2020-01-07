@@ -7,7 +7,7 @@ Este projeto foi gerado com [Django](https://github.com/django/django) version 1
 #### Set Up
 Clone esse projeto:
 
-`$ git clone https://github.com/I-am-Miguel/miguel_teste.git`
+`$ git clone https://github.com/Sou-eu-Miguel/miguel_teste.git`
 
 `$ cd miguel_teste`
 
